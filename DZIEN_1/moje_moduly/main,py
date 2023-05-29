@@ -3,6 +3,7 @@
 from dane import nr_filii as filia
 from dane import book as ks
 from funkcje.bfunkcje import czytaj_liste,czytaj_slownik
+from klasy.bklasa import CDane
 
 #CTRL+D -> powielenie linii/blok
 print("_"*20,"wyświetlenie bezpośrenie","_"*20)
@@ -13,3 +14,8 @@ print("_"*20,"wyświetlenie za pomocą funkcji","_"*20)
 czytaj_liste(filia)
 print("*****************************")
 czytaj_slownik(ks)
+
+print("_"*20,"wyświetlenie za pomocą obiektu klasy","_"*20)
+cd = CDane(filia,ks)
+cd.czytaj_s()
+cd.czytaj_l()
