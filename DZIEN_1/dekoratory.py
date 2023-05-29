@@ -35,3 +35,19 @@ def info(msg):
     print(f'ważna informacja: {msg}')
 
 info("takie tam")
+
+#przykład3
+
+def repeater(n):
+    def wrapper(funkcja):
+        def inner(*args):
+            for i in range(n):
+                funkcja(*args)
+        return inner
+    return wrapper
+
+@repeater(7)
+def hx(y,n):
+    print(f'wynik {(y+n)**n}')
+
+hx(3.4,7)
