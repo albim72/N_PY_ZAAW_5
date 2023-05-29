@@ -39,3 +39,24 @@ print(osoba(witaj,"Leon"))
 print(osoba(konkurs,"Anna",56))
 print(osoba(student,"Nadia",23,"Informatyka"))
 
+#przykład3
+
+def rejestracja(oplata):
+    def lista():
+        return "Opłata wniesiona, jesteś na liście zawodników."
+    def brak():
+        return "Brak wpłaty. Zapłać w ciągu 5 dni!"
+    def error():
+        return "Błąd płatności. Powtórz."
+
+    if oplata == 1:
+        return lista
+    elif oplata == 0:
+        return brak
+    else:
+        return error
+
+
+print(rejestracja(0)())
+print(rejestracja(1)())
+print(rejestracja(13)())
