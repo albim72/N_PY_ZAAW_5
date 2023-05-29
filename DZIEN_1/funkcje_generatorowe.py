@@ -36,5 +36,30 @@ for i in wznowienie(6,2):
     if i==1145:
         continue
     print(f"wartość z generatora: {i}")
-    
+
+#przykład3
+
+def complexgen():
+    x = 0
+    while True:
+        print("x-print1")
+        y = yield x
+        print("x-print2")
+        if y is None:
+            x=x+1
+        else:
+            x=y
+
+
+g = complexgen()
+print(next(g))
+print(next(g))
+print(next(g))
+print(next(g))
+print(g.send(144))
+print(next(g))
+print(next(g))
+print(next(g))
+print(next(g))
+
 
