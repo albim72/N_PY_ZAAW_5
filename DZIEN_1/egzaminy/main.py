@@ -1,3 +1,6 @@
+from homework import Homework
+from exam import Exam
+
 st = Homework()
 st.grade = 95
 assert st.grade == 95
