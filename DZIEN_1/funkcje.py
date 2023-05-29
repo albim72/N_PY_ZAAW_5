@@ -60,3 +60,33 @@ def rejestracja(oplata):
 print(rejestracja(0)())
 print(rejestracja(1)())
 print(rejestracja(13)())
+
+#przykład4
+
+def startstop(funkcja):
+    def wrapper(*args):
+        print("startowanie procesu...")
+        funkcja(*args)
+        print("kończenie procesu...")
+    return wrapper
+
+
+def zawijanie(czego):
+    print(f"zawijanie {czego} w sreberka...")
+
+print("_"*30)
+zw = startstop(zawijanie)
+zw("czekoladek")
+
+@startstop
+def dmuchanie(czego):
+    print(f"dmuchanie {czego} w urodziny")
+
+
+dmuchanie("świeczek na torcie")
+
+@startstop
+def f(x):
+    print(f"wynik = {x*100-32}")
+
+f(99)
