@@ -1,3 +1,4 @@
+#przykład 1
 def multi(n:int)->int:
     return lambda a:a*n
 
@@ -14,6 +15,27 @@ print(parz)
 cube = list(map(lambda x:x**3,num))
 print(cube)
 
+def policz(x):
+    return (x+5)**4
+
+nbp = list(map(policz,num))
+print(nbp)
 
 
+#przykład 2
+def witaj(imie):
+    return f"Miło Cię widzieć {imie}!"
+
+def konkurs(imie,punkty):
+    return f"uczestnik konkursu {imie}, liczba punktów: {punkty}"
+
+def student(imie,kierunek,wiek):
+    return f"Student {imie}, wiek: {wiek}, kierunek: {kierunek}"
+
+def osoba(funkcja,*args):
+    return funkcja(*args)
+
+print(osoba(witaj,"Leon"))
+print(osoba(konkurs,"Anna",56))
+print(osoba(student,"Nadia",23,"Informatyka"))
 
