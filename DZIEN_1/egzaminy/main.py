@@ -1,6 +1,7 @@
 from homework import Homework
 from exam import Exam
 from newgrade import ExamGrade
+from weak import ExamWeak
 
 st = Homework()
 st.grade = 95
@@ -37,3 +38,34 @@ print(f'oceny II termin [EgamGrade] -> writing: {se.writing_grade}, math: {se.ma
 print("_przzypomnienie I termin: ")
 print(f'oceny I termin - przypomnienie  [EgamGrade] -> writing: {fe.writing_grade}, math: {fe.math_grade}, '
       f'science: {fe.science_grade}')
+
+
+print(fe.math_grade == se.math_grade)
+print(fe==se)
+
+
+print("______________________")
+
+fe = ExamWeak()
+fe.writing_grade = 54
+fe.math_grade = 34
+fe.science_grade = 13
+
+print(f'oceny I termin  [EgamWeak] -> writing: {fe.writing_grade}, math: {fe.math_grade}, '
+      f'science: {fe.science_grade}')
+
+se = ExamWeak()
+se.writing_grade = 77
+se.math_grade = 88
+se.science_grade = 99
+
+print(f'oceny II termin [EgamWeak] -> writing: {se.writing_grade}, math: {se.math_grade}, '
+      f'science: {se.science_grade}')
+
+print("_przzypomnienie I termin: ")
+print(f'oceny I termin - przypomnienie  [EgamWeak] -> writing: {fe.writing_grade}, math: {fe.math_grade}, '
+      f'science: {fe.science_grade}')
+
+
+print(fe.math_grade == se.math_grade)
+print(fe==se)
