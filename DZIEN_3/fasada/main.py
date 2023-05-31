@@ -16,18 +16,18 @@ class Server(metaclass=ABCMeta):
     @abstractmethod
     def __init__(self):
         pass
-    
+
     def __str__(self):
         return self.name
-    
+
     @abstractmethod
     def boot(self):
         pass
-    
+
     @abstractmethod
     def kill(self,restart=True):
         pass
-    
+
 class FileServer(Server):
     def __init__(self):
         self.name = 'FileServer'
@@ -40,7 +40,7 @@ class FileServer(Server):
     def kill(self, restart=True):
         print(f"Usuwanie {self}")
         self.state = State.restart if restart else State.zombie
-        
+
     def create_file(self,user,name,permissions):
         print(f"próba utworzenia pliku {name} dla użytkownika {user} z uprawnieniami {permissions}")
 
@@ -60,3 +60,23 @@ class ProcessServer(Server):
 
     def create_process(self, user, name):
         print(f"próba utworzenia procesu {name} dla użytkownika {user}")
+        
+class WindowServer:
+    pass
+
+class NetworkServer:
+    pass
+
+class OperatingSystem:
+    def __init__(self):
+        self.fs = FileServer()
+        self.ps = ProcessServer()
+        
+    def start(self):
+        [i.boot() for i in (self.fs,self.ps)]
+        
+    def create_file(self,user,name,permissions):
+        return self.fs.create_file(user,name,permissions)
+    
+    def create_process(self,user,name):
+        return self.ps.create_process(user, name)
