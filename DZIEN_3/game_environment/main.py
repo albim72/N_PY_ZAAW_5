@@ -16,7 +16,7 @@ class Bug:
 
     def action(self):
         return 'zjada go'
-    
+
 class FrogWorld:
     def __init__(self,name):
         print(self)
@@ -66,3 +66,13 @@ class WorlockWorld:
 
     def make_obstacle(self):
         return Ork()
+    
+    
+class GameEnvironment:
+    def __init__(self,factory):
+        self.hero = factory.make_character()
+        self.obstacle = factory.make_obstacle()
+        
+    def play(self):
+        self.hero.interact_with(self.obstacle)
+        
