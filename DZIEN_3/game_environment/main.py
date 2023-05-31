@@ -53,7 +53,7 @@ class Ork:
         return 'masakruje go'
 
 
-class WorlockWorld:
+class WarlockWorld:
     def __init__(self, name):
         print(self)
         self.player_name = name
@@ -75,7 +75,7 @@ class GameEnvironment:
 
     def play(self):
         self.hero.interact_with(self.obstacle)
-        
+
 
 def validate_age(name):
     try:
@@ -85,3 +85,15 @@ def validate_age(name):
         print(f'Wiek {age} jest błędny, spróbuj jeszcze raz...')
         return (False,age)
     return (True,age)
+
+def main():
+    name = input(f"Witaj. Podaj swoje imię: ")
+    valid_input = False
+    while not valid_input:
+        valid_input,age = validate_age(name)
+    game = FrogWorld if age<15 else WarlockWorld
+    environment = GameEnvironment(game(name))
+    environment.play()
+
+if __name__ == '__main__':
+    main()
