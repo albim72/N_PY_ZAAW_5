@@ -20,9 +20,9 @@ class KeyValueConstructError(Exception):
 
 
 class CustomIntFloatDict(dict):
-    
+
     empty_dict={}
-    
+
     def __init__(self,key=None,value=None):
         if key is None or value is None:
             self.get_dict()
@@ -34,14 +34,22 @@ class CustomIntFloatDict(dict):
                 if not isinstance(val,(int,float)):
                     raise IntFloatValueError(val)
                 dict.__setitem__(self,k,val)
-            
+
     def get_dict(self):
         return self.empty_dict
-    
-    
+
+
     def __setitem__(self, key, value):
         if not isinstance(value, (int, float)):
             raise IntFloatValueError(value)
         return dict.__setitem__(self, key, value)
-    
-    
+
+
+test1 = CustomIntFloatDict()
+print(test1)
+
+# test2 = CustomIntFloatDict({'a','b'},[1,6])
+# test3 = CustomIntFloatDict(('x','y','z'),(10,'twenty',30))
+test4 = CustomIntFloatDict(('x','y','z'),(10,20,30))
+print(test4)
+
