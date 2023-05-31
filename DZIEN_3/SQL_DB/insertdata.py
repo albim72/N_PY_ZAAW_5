@@ -7,6 +7,16 @@ idata = """
 INSERT INTO student(firstname,lastname,kierunek) VALUES(%s,%s,%s);
 """
 val = ("Jan","Nowak","Budowlany")
+morestud = [
+    ("Anna","Kos","Informatyka"),
+    ("Olga","Nowik","Informatyka"),
+    ("Mariusz","Rync","Fizyka"),
+    ("Nadia","Kłos","Pedagogika"),
+    ("Bartek","Kowal","Ekomomia"),
+    ("Olaf","Nowik","Prawo"),
+    ("Gienek","Owczar","Prawo"),
+]
 cursorObject.execute(idata,val)
+cursorObject.executemany(idata,morestud)
 db.commit()
 db.close()
