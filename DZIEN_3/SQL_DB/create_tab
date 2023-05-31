@@ -7,7 +7,7 @@ newtab = """
 Create table if not exists student(
 firstname varchar(100),
 lastname varchar(100),
-idstud int primary key,
+idstud int primary key auto_increment,
 kierunek varchar(100)
 );
 """
