@@ -34,17 +34,17 @@ class MargaritaBuilder:
         self.pizza = Pizza('margarita')
         self.progress = PizzaProgress.queued
         self.baking_time = 5
-        
+
     def prepare_dough(self):
         self.progress = PizzaProgress.preparation
         self.pizza.prepare_dough(PizzaDough.thin)
-        
+
     def add_sauce(self):
         print('adding the tomato sauce to your margarita...')
         self.pizza.sauce = PizzaSauce.tomato
         time.sleep(STEP_DELAY)
         print('done with the tomato sauce...')
-        
+
     def add_topping(self):
         topping_desc ='double mozarella, oregano'
         topping_items = (PizzaTopping.double_mozarella,PizzaTopping.oregano)
@@ -52,10 +52,48 @@ class MargaritaBuilder:
         self.pizza.topping.append([t for t in topping_items])
         time.sleep(STEP_DELAY)
         print(f'dane with the topping ({topping_desc})')
-        
+
     def bake(self):
         self.progress = PizzaProgress.baking
-        print(f'bakieng your margarita for {self.baking_time} s')
+        print(f'baking your margarita for {self.baking_time} s')
         time.sleep(self.baking_time)
         self.progress = PizzaProgress.ready
         print('Your margarita is ready!!!')
+        
+        
+        
+class CreamyBaconBuilder:
+    def __init__(self):
+        self.pizza = Pizza('creamy bacon')
+        self.progress = PizzaProgress.queued
+        self.baking_time = 7
+
+    def prepare_dough(self):
+        self.progress = PizzaProgress.preparation
+        self.pizza.prepare_dough(PizzaDough.thick)
+
+    def add_sauce(self):
+        print('adding the creme fraiche sauce to your creamy bacon...')
+        self.pizza.sauce = PizzaSauce.cream_fraiche
+        time.sleep(STEP_DELAY)
+        print('done with the creme fraiche sauce...')
+
+    def add_topping(self):
+        topping_desc ='mozarella, bacon, ham, mushrooms, red onion, oregano'
+        topping_items = (PizzaTopping.mozarella,
+                         PizzaTopping.bacon,
+                         PizzaTopping.ham,
+                         PizzaTopping.mushrooms,
+                         PizzaTopping.red_onion,
+                         PizzaTopping.oregano)
+        print(f'adding the topping ({topping_desc}) to your creamy bacon...')
+        self.pizza.topping.append([t for t in topping_items])
+        time.sleep(STEP_DELAY)
+        print(f'done with the topping ({topping_desc})')
+
+    def bake(self):
+        self.progress = PizzaProgress.baking
+        print(f'baking your creamy bacon for {self.baking_time} s')
+        time.sleep(self.baking_time)
+        self.progress = PizzaProgress.ready
+        print('Your creamy bacon is ready!!!')
