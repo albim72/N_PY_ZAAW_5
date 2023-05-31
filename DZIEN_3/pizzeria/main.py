@@ -74,7 +74,7 @@ class CreamyBaconBuilder:
 
     def add_sauce(self):
         print('adding the creme fraiche sauce to your creamy bacon...')
-        self.pizza.sauce = PizzaSauce.cream_fraiche
+        self.pizza.sauce = PizzaSauce.creme_fraiche
         time.sleep(STEP_DELAY)
         print('done with the creme fraiche sauce...')
 
@@ -113,8 +113,8 @@ class Waiter:
     @property
     def pizza(self):
         return self.builder.pizza
-    
-    
+
+
 def validate_style(builders):
     try:
         input_msg = 'What pizza would you like, [m]argarita or [c]reamy bacon?'
@@ -127,7 +127,21 @@ def validate_style(builders):
         return (False,None)
     return (True,builder)
 
-def main()
+def main():
+    builders = dict(m=MargaritaBuilder, c=CreamyBaconBuilder)
+    valid_input = False
+    while not valid_input:
+        valid_input,builder = validate_style(builders)
+    print()
+    waiter = Waiter()
+    waiter.construct_pizza(builder)
+    pizza = waiter.pizza
+    print()
+    print(f'Enjoy your {pizza}!')
+
+if __name__ == '__main__':
+    main()
+
 
 
 
